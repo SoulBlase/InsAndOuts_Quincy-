@@ -36,5 +36,8 @@ void draw(){
 }
 
 void MousePressed(){
-  //if(mouseX <= height/2
+  if(mouseX < height/2){
+    
+    
+  }
 }

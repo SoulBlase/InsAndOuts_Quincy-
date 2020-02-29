@@ -36,8 +36,13 @@ void draw(){
 }
 
 void MousePressed(){
-  if(mouseX < height/2){
-    
-    
+  if(mouseY > height/2){
+    file.play();
+  }
+  else if(mouseX > width/2 && mouseY < height/4){
+    file3.play();
+  }
+  else if(mouseX < width/2 && mouseY < height/4){
+    file2.play();
   }
 }

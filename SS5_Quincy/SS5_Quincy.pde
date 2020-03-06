@@ -1,11 +1,11 @@
-//SS5 by Quincy Lewis
-int[] startX = new int[100];
-int[] startY = new int[100];
-float move;
-
+//Salt and Rage by Quincy Lewis
+PImage[] Salt = new PImage [5];
+PImage[] Rage = new PImage [5];
+float move = 1.5;
 
 void setup(){
   size(800,800);
+  
 }
 
 void draw(){

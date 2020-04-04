@@ -28,6 +28,8 @@ void setup(){
 
 void draw(){
   background(15, 217, 242);
+  fill(59,9,178);
+  rect(800, 0, width, height *2);//Moon's Side
   
   System.Sun();
   System.Moon();
@@ -35,8 +37,6 @@ void draw(){
   //System.Gradient(width/2, 0, width/2, height, b2, b1, X_AXIS);
   //System.Gradient(50, 90, 540, 80, c1, c2, Y_AXIS);
   //System.Gradient(50, 190, 540, 80, c2, c1, X_AXIS);
-  
-  
   
 }
 
@@ -72,8 +72,6 @@ class SolarEclispe{
   void Moon(){
     fill(204, 206, 206);
     ellipse(xposMoon, yposMoon, 50, 50);
-    fill(15, 217, 242);
-    rect();
     xposMoon-=3;
     println("Moon: x = " + xposMoon);
     if (xposMoon < -50){
@@ -83,20 +81,20 @@ class SolarEclispe{
   
   void Gradient(int x, int y, float w, float h, color c1, color c2, int axis){
     if (axis == Y_AXIS) {  // Top to bottom gradient
-    for (int i = y; i <= y+h; i++) {
-      float inter = map(i, y, y+h, 0, 1);
-      color c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(x, i, x+w, i);
+      for (int i = y; i <= y+h; i++) {
+        float inter = map(i, y, y+h, 0, 1);
+        color c = lerpColor(c1, c2, inter);
+        stroke(c);
+        line(x, i, x+w, i);
+      }
+    }  
+    else if (axis == X_AXIS) {  // Left to right gradient
+      for (int i = x; i <= x+w; i++) {
+        float inter = map(i, x, x+w, 0, 1);
+        color c = lerpColor(c1, c2, inter);
+        stroke(c);
+        line(i, y, i, y+h);
+      }
     }
-  }  
-  else if (axis == X_AXIS) {  // Left to right gradient
-    for (int i = x; i <= x+w; i++) {
-      float inter = map(i, x, x+w, 0, 1);
-      color c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(i, y, i, y+h);
-    }
-  }
   }
 }

@@ -44,7 +44,7 @@ void Midermdraw() {
   ellipse(mouseX,mouseY,25,25);   
 }
 
-void mousePressed() { 
+void midermmousePressed() { 
 background(0);
   fill(54,234,0);
   ellipse(0, 250,100,250);

@@ -3,11 +3,11 @@
 //Sun and Moon explodes into Gradient.
 //Create a gradient once the Solar Eclipse happens
 //Create a timer for the Solar Eclipse(may change)
-//Create Star/Light(Sun) Objects for interaction
+//Create Star Objects for interaction (mouseclick for star to explode)
 
 //Maybe draw the solar eclipse without the sun and moon separate?
 SolarEclispe System;
-
+//Star 
 
 /*float x = -50;
 float y = 50;*/
@@ -40,7 +40,9 @@ void draw(){
   
 }
 
-
+void mousePressed(){
+  
+}
 
 class SolarEclispe{
   float xposSun, yposSun, xposMoon, yposMoon;
@@ -48,6 +50,7 @@ class SolarEclispe{
   int dim; 
   int Y_AXIS = 1;
   int X_AXIS = 2;
+  
   
   SolarEclispe(){
     xposSun = -50;
@@ -79,6 +82,7 @@ class SolarEclispe{
     }
   }
   
+  
   void Gradient(int x, int y, float w, float h, color c1, color c2, int axis){
     if (axis == Y_AXIS) {  // Top to bottom gradient
       for (int i = y; i <= y+h; i++) {
@@ -96,5 +100,9 @@ class SolarEclispe{
         line(i, y, i, y+h);
       }
     }
+  }
+  
+  void Collision(){
+    
   }
 }

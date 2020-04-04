@@ -7,7 +7,7 @@
 
 //Maybe draw the solar eclipse without the sun and moon separate?
 SolarEclispe System;
-//Star 
+Star[] stars =  new Star[50];
 
 /*float x = -50;
 float y = 50;*/

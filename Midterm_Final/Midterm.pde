@@ -31,6 +31,7 @@ void draw(){
   fill(59,9,178);
   rect(800, 0, width, height *2);//Moon's Side
   
+  
   System.Sun();
   System.Moon();
   //System.Gradient(0, 0, width/2, height, b1, b2, X_AXIS);

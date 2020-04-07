@@ -24,6 +24,9 @@ void setup(){
   c1 = color(204, 102, 0);
   c2 = color(0, 102, 153);
   System = new SolarEclispe(); 
+  /*for(int i = 0; i<stars.length; i++){
+    stars[i] = new Star(int(random(width))), int(random(0, height + 100));
+  }*/
 }
 
 void draw(){
@@ -34,10 +37,7 @@ void draw(){
   
   System.Sun();
   System.Moon();
-  //System.Gradient(0, 0, width/2, height, b1, b2, X_AXIS);
-  //System.Gradient(width/2, 0, width/2, height, b2, b1, X_AXIS);
-  //System.Gradient(50, 90, 540, 80, c1, c2, Y_AXIS);
-  //System.Gradient(50, 190, 540, 80, c2, c1, X_AXIS);
+  System.Collision();
   
 }
 
@@ -104,6 +104,12 @@ class SolarEclispe{
   }
   
   void Collision(){
-    
+    if(xposSun >= 330.0 && xposSun <= 430.0){
+      if(xposMoon <= 430.0){
+        System.Gradient(0, 0, width/2, height, b1, b2, X_AXIS);
+        System.Gradient(width/2, 0, width/2, height, b2, b1, X_AXIS);
+        noLoop();
+      }
+    }
   }
 }

@@ -1,16 +1,13 @@
 class Star{
   int x, y;
   int x2, y2;
-  int diameter; //fixed diameter
   int r, g, b;
   
-  Star(int altX, int altY, int altX2, int altY2){
+  Star(int altX, int altY){
     //constructor here
     x = altX;
     y = altY;
-    x2 = altX2;
-    y2 = altY2;
-    r = 216; 
+    r = 216;
     g = 216;
     b = 216;
   }
@@ -18,6 +15,7 @@ class Star{
   void display(){
     //star object here
     fill(r,g,b);
+    beginShape();
     vertex(0, -50);
     vertex(14, -20);
     vertex(47, -15);

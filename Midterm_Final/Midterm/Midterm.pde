@@ -7,7 +7,7 @@
 
 //Maybe draw the solar eclipse without the sun and moon separate?
 SolarEclispe System;
-Star[] stars =  new Star[50];
+Star[] stars =  new Star[200];
 
 /*float x = -50;
 float y = 50;*/
@@ -24,16 +24,15 @@ void setup(){
   c1 = color(204, 102, 0);
   c2 = color(0, 102, 153);
   System = new SolarEclispe(); 
-  /*for(int i = 0; i<stars.length; i++){
+  for(int i = 0; i < stars.length; i++){
     stars[i] = new Star(int(random(width))), int(random(0, height + 100));
-  }*/
+  }
 }
 
 void draw(){
   background(15, 217, 242);
   fill(59,9,178);
   rect(800, 0, width, height *2);//Moon's Side
-  
   
   System.Sun();
   System.Moon();
@@ -83,7 +82,7 @@ class SolarEclispe{
     }
   }
   
-  
+  //This code is borrowed from the processing website
   void Gradient(int x, int y, float w, float h, color c1, color c2, int axis){
     if (axis == Y_AXIS) {  // Top to bottom gradient
       for (int i = y; i <= y+h; i++) {
@@ -110,6 +109,10 @@ class SolarEclispe{
         System.Gradient(width/2, 0, width/2, height, b2, b1, X_AXIS);
         noLoop();
       }
+    }
+    for(int i = 0; i < stars.length; i++){
+      stars[i].display();
+      stars[i].fall();
     }
   }
 }

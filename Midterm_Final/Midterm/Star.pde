@@ -14,7 +14,9 @@ class Star{
   
   void display(){
     //star object here
+    pushMatrix();
     fill(r,g,b);
+    translate(x, y);
     beginShape();
     vertex(0, -50);
     vertex(14, -20);
@@ -27,6 +29,7 @@ class Star{
     vertex(-47, -15);
     vertex(-14, -20);
     endShape(CLOSE);
+    popMatrix();
   }
   
   void fall(){

@@ -14,8 +14,6 @@ color b1, b2, c1, c2;
 int Y_AXIS = 1;
 int X_AXIS = 2;
 int State = 1; // state variable
-boolean pause = false; 
-boolean starDestroyed = false;
 
 void setup() {
   size(800, 800);

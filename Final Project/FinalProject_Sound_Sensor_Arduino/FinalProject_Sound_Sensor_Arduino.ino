@@ -20,11 +20,14 @@ void loop() {
 
 
   duration = pulseIn(echoPin, HIGH);
+  delay(200);
   distance = duration * 0.1 / 2;
+  distance = map(distance, 0, 4000, 0, 255);
+  //Serial.println(distance);
 
-  if (0 < distance < 200)(
-      Serial.println(distance);
-  }
+  if (distance >  0 && distance < 255){
+      Serial.write(distance);
+}
   
   delay(100);
 }

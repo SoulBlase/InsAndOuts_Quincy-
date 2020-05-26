@@ -20,9 +20,9 @@ void setup(){
   size(800, 800);
   
   minim = new Minim(this);
-  player = minim.loadFile("Low Tier God Classic Clips Collection (Salt & Rage)");
-  player2 = minim.loadFile("DSP Tries It Best RAGE Moments Salty Fails Compilation");
-  player3 = minim.loadFile("WingsOfRedemption Rage Compilation [Best Of 2019]");
+  player = minim.loadFile("Dramatic-bass-loop-110-bpm.wav");
+  player2 = minim.loadFile("Drum-beat-loop-112-bpm.wav");
+  player3 = minim.loadFile("Chillwave-drum-loop-115-bpm.wav");
   
   printArray(Serial.list()); // this line prints the port list to the console
   String portName = Serial.list()[0]; //change the number in the [] for the port you need
@@ -30,16 +30,15 @@ void setup(){
   
   distance = constrain(distance, 1, 200);
   
-  player.play();
-  player.loop();
-  player.unmute();
+  //player.play();
+  //player.loop();
+  //player.unmute();
 }
 
 void draw(){
-  byte[] portBuffer = new byte[10];
   if ( myPort.available() > 0) { // If data is available,
     val = myPort.read(); // read it and store it in val
-    portBuffer = myPort. readBytes();
+    
   }
   
   for(int i = 0; i < 100; i = i + 4){
@@ -51,18 +50,37 @@ void draw(){
     a = a + in;
   }
   
+  if(distance >= 1 && distance <= 50){
+    player.play();
+    //Stop(true);
+  }
+  else if(distance >= 51 && distance <= 100){
+    player2.play();
+  }
+  else if(distance >= 101 && distance <= 200){
+    player3.play();
+  }
+  
+  println(val);
 }
 
 
-void Stop(){
-  player.close();
-  player2.close();
-  player3.close();
+void Stop(boolean playOver){
+  if(distance >= 51 && distance <= 100){
+    //playOver = true;
+    player.close();
+  }
+  else if(distance >= 101 && distance <= 200){
+    player2.close();
+  }
+  else if(distance >= 1 && distance <= 50){
+    player3.close();
+  }
   minim.stop();
   
 }
 
-void SerialEvent(Serial port){
+/*void SerialEvent(Serial port){
   if (distance < 0){
     distance = 0;
   }
@@ -74,4 +92,4 @@ void SerialEvent(Serial port){
     player.setGain(volume); 
     println(volume);
   }
-}
+}*/
